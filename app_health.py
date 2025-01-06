@@ -1,11 +1,9 @@
 import requests
 
-# Application URL
-URL = "https://www.google.co.in/" 
-
-def check_app_health():
+# Function to check application health
+def check_app_health(url):
     try:
-        response = requests.get(URL)
+        response = requests.get(url)
         if response.status_code == 200:
             print(f"Application is UP. Status Code: {response.status_code}")
         else:
@@ -14,4 +12,6 @@ def check_app_health():
         print("Application is DOWN. Unable to connect.")
 
 if __name__ == "__main__":
-    check_app_health()
+    # Get the application URL from the user
+    url = input("Enter the application URL: ")
+    check_app_health(url)
